@@ -1,0 +1,8 @@
+defmodule PhoenixCart.PageControllerTest do
+  use PhoenixCart.ConnCase
+
+  test "GET /" do
+    conn = get conn(), "/"
+    assert html_response(conn, 200) =~ "Welcome to Phoenix!"
+  end
+end
