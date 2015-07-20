@@ -14,6 +14,8 @@ defmodule PhoenixCart.Router do
 
   scope "/", PhoenixCart do
     pipe_through :browser # Use the default browser stack
+    resources "/categories", CategoryController
+    resources "/products", ProductController
 
     get "/", PageController, :index
   end
