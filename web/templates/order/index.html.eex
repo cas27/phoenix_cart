@@ -1,0 +1,44 @@
+<h2>Listing orders</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Ship name</th>
+      <th>Ship company</th>
+      <th>Ship state</th>
+      <th>Ship zipcode</th>
+      <th>Phone number</th>
+      <th>Email</th>
+      <th>Status</th>
+      <th>Total</th>
+      <th>Ship address1</th>
+      <th>Ship address2</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for order <- @orders do %>
+    <tr>
+      <td><%= order.ship_name %></td>
+      <td><%= order.ship_company %></td>
+      <td><%= order.ship_state %></td>
+      <td><%= order.ship_zipcode %></td>
+      <td><%= order.phone_number %></td>
+      <td><%= order.email %></td>
+      <td><%= order.status %></td>
+      <td><%= order.total %></td>
+      <td><%= order.ship_address1 %></td>
+      <td><%= order.ship_address2 %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: order_path(@conn, :show, order), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: order_path(@conn, :edit, order), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: order_path(@conn, :delete, order), method: :delete, class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New order", to: order_path(@conn, :new) %>

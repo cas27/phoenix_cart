@@ -1,0 +1,66 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if f.errors != [] do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below:</p>
+      <ul>
+        <%= for {attr, message} <- f.errors do %>
+          <li><%= humanize(attr) %> <%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= label f, :ship_name, "Ship name" %>
+    <%= text_input f, :ship_name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :ship_company, "Ship company" %>
+    <%= text_input f, :ship_company, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :ship_state, "Ship state" %>
+    <%= text_input f, :ship_state, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :ship_zipcode, "Ship zipcode" %>
+    <%= text_input f, :ship_zipcode, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :phone_number, "Phone number" %>
+    <%= text_input f, :phone_number, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :email, "Email" %>
+    <%= text_input f, :email, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :status, "Status" %>
+    <%= text_input f, :status, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :total, "Total" %>
+    <%= number_input f, :total, step: "any", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :ship_address1, "Ship address1" %>
+    <%= text_input f, :ship_address1, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :ship_address2, "Ship address2" %>
+    <%= text_input f, :ship_address2, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>

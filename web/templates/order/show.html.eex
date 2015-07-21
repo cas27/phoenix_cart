@@ -1,0 +1,57 @@
+<h2>Show order</h2>
+
+<ul>
+
+  <li>
+    <strong>Ship name:</strong>
+    <%= @order.ship_name %>
+  </li>
+
+  <li>
+    <strong>Ship company:</strong>
+    <%= @order.ship_company %>
+  </li>
+
+  <li>
+    <strong>Ship state:</strong>
+    <%= @order.ship_state %>
+  </li>
+
+  <li>
+    <strong>Ship zipcode:</strong>
+    <%= @order.ship_zipcode %>
+  </li>
+
+  <li>
+    <strong>Phone number:</strong>
+    <%= @order.phone_number %>
+  </li>
+
+  <li>
+    <strong>Email:</strong>
+    <%= @order.email %>
+  </li>
+
+  <li>
+    <strong>Status:</strong>
+    <%= @order.status %>
+  </li>
+
+  <li>
+    <strong>Total:</strong>
+    <%= @order.total %>
+  </li>
+
+  <li>
+    <strong>Ship address1:</strong>
+    <%= @order.ship_address1 %>
+  </li>
+
+  <li>
+    <strong>Ship address2:</strong>
+    <%= @order.ship_address2 %>
+  </li>
+
+</ul>
+
+<%= link "Back", to: order_path(@conn, :index) %>
