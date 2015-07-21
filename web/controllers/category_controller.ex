@@ -4,6 +4,7 @@ defmodule PhoenixCart.CategoryController do
   alias PhoenixCart.Category
 
   plug :scrub_params, "category" when action in [:create, :update]
+  plug :get_or_create_cart when action in [:index, :show]
 
   def index(conn, _params) do
     categories = Repo.all(Category)
@@ -62,5 +63,16 @@ defmodule PhoenixCart.CategoryController do
     conn
     |> put_flash(:info, "Category deleted successfully.")
     |> redirect(to: category_path(conn, :index))
+  end
+
+  defp get_or_create_cart(conn, _) do
+    if get_session(conn, :cart) do
+      cart = Repo.get(PhoenixCart.Order, get_session(conn, :cart))
+      assign(conn, :order, cart)
+    else
+      cart = Repo.insert!(%PhoenixCart.Order{status: "cart"})
+      conn = put_session(conn, :cart, cart.id)
+      assign(conn, :order, cart)
+    end
   end
 end
