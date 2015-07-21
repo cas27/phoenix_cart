@@ -4,6 +4,7 @@ defmodule PhoenixCart.ProductController do
   alias PhoenixCart.Product
 
   plug :scrub_params, "product" when action in [:create, :update]
+  plug PhoenixCart.Plugs.Cart when action in [:show]
 
   def index(conn, _params) do
     products = Repo.all(Product)
