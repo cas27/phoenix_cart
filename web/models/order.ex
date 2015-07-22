@@ -13,6 +13,9 @@ defmodule PhoenixCart.Order do
     field :ship_address1, :string
     field :ship_address2, :string
 
+    has_many :line_items, PhoenixCart.LineItem
+    has_many :products, through: [:line_items, :product]
+
     timestamps
   end
 
