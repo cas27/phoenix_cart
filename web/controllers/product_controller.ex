@@ -2,6 +2,7 @@ defmodule PhoenixCart.ProductController do
   use PhoenixCart.Web, :controller
 
   alias PhoenixCart.Product
+  alias PhoenixCart.LineItem
 
   plug :scrub_params, "product" when action in [:create, :update]
   plug PhoenixCart.Plugs.Cart when action in [:show]
@@ -32,7 +33,8 @@ defmodule PhoenixCart.ProductController do
 
   def show(conn, %{"id" => id}) do
     product = Repo.get!(Product, id)
-    render(conn, "show.html", product: product)
+    changeset = LineItem.changeset(%LineItem{})
+    render(conn, "show.html", product: product, changeset: changeset)
   end
 
   def edit(conn, %{"id" => id}) do

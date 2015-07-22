@@ -18,6 +18,7 @@ defmodule PhoenixCart.Router do
     resources "/categories", CategoryController
     resources "/products", ProductController
     resources "/orders", OrderController
+    resources "/cart", CartController, only: [:index, :update, :delete] 
 
     get "/", PageController, :index
   end

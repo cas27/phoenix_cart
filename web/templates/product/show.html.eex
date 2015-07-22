@@ -24,4 +24,7 @@
 
 </ul>
 
+<%= render "add_form.html", changeset: @changeset, product: @product, order: @order, 
+                        action: cart_path(@conn, :update, @order) %>
+
 <%= link "Back", to: product_path(@conn, :index) %>

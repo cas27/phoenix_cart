@@ -1,0 +1,25 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <input name="_method" type="hidden" value="put">
+  <%= if f.errors != [] do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below:</p>
+      <ul>
+        <%= for {attr, message} <- f.errors do %>
+          <li><%= humanize(attr) %> <%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= label f, :quantity, "Quantity" %>
+    <%= text_input f, :quantity, class: "form-control" %>
+  </div>
+
+    <%= hidden_input f, :product_id, value: @product.id %>
+    <%= hidden_input f, :order_id, value: @order.id %>
+
+  <div class="form-group">
+    <%= submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>
