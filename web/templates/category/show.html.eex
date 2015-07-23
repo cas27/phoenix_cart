@@ -2,7 +2,7 @@
 
 <ul>
 <%= for product <- @category.products do %>
-    <li><%= product.name %> $<%= product.price %></li>
+    <li><%= link product.name, to: product_path(@conn, :show, product) %> $<%= product.price %></li>
 <% end %>
 </ul>
 
