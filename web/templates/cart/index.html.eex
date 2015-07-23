@@ -1,0 +1,7 @@
+<h2>Cart</h2>
+
+<%= for line_item <- @order.line_items do %>
+    <tr>
+      <td><%= line_item.quantity %></td>
+    </tr>
+<% end %>

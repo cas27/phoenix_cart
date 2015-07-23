@@ -6,11 +6,11 @@ defmodule PhoenixCart.CartController do
   alias PhoenixCart.LineItem
 
   plug :scrub_params, "line_item" when action in [:create, :update]
+  plug PhoenixCart.Plugs.Cart when action in [:index]
 
 
   def index(conn, _params) do
-    orders = Repo.all(Order)
-    render(conn, "index.html", orders: orders)
+    render(conn, "index.html")
   end
 
   def update(conn, %{"id" => id, "line_item" => line_item_params}) do
@@ -19,13 +19,14 @@ defmodule PhoenixCart.CartController do
     changeset = LineItem.changeset(%LineItem{}, line_item_params)
 
     if changeset.valid? do
-      Repo.update!(changeset)
+      Repo.insert!(changeset)
 
       conn
       |> put_flash(:info, "Added to cart.")
       |> redirect(to: cart_path(conn, :index))
     else
-      render(conn, "show.html", product: product, changeset: changeset)
+      conn
+      |> redirect(to: product_path(conn, :show, product))
     end
   end
 

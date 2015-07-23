@@ -10,7 +10,7 @@ defmodule PhoenixCart.LineItem do
     timestamps
   end
 
-  @required_fields ~w(quantity price)
+  @required_fields ~w(quantity price order_id product_id)
   @optional_fields ~w()
 
   @doc """

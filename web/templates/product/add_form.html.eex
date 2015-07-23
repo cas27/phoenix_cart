@@ -17,6 +17,7 @@
   </div>
 
     <%= hidden_input f, :product_id, value: @product.id %>
+    <%= hidden_input f, :price, value: @product.price %>
     <%= hidden_input f, :order_id, value: @order.id %>
 
   <div class="form-group">
