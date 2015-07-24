@@ -19,8 +19,8 @@ defmodule PhoenixCart.Order do
     timestamps
   end
 
-  @required_fields ~w(ship_name ship_company ship_state ship_zipcode phone_number email status total ship_address1)
-  @optional_fields ~w(ship_address2)
+  @required_fields ~w(ship_name ship_state ship_zipcode phone_number email status total ship_address1)
+  @optional_fields ~w(ship_address2 ship_company)
 
   @doc """
   Creates a changeset based on the `model` and `params`.

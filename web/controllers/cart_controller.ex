@@ -10,7 +10,8 @@ defmodule PhoenixCart.CartController do
 
 
   def index(conn, _params) do
-    render(conn, "index.html")
+    changeset = Order.changeset(:update, conn.assigns[:order])
+    render(conn, "index.html", changeset: changeset)
   end
 
   def update(conn, %{"id" => id, "line_item" => line_item_params}) do
