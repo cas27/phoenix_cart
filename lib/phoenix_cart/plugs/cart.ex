@@ -8,7 +8,8 @@ defmodule PhoenixCart.Plugs.Cart do
 
   def call(conn, _default) do
     if get_session(conn, :cart) do
-      [cart] = Repo.all(Ecto.Query.from(p in Order, where: p.id == ^get_session(conn, :cart), preload: :line_items))
+      [cart] = Repo.all(Ecto.Query.from(p in Order, where: p.id == ^get_session(conn, :cart)))
+      |> Repo.preload([line_items: :product])
       assign(conn, :order, cart)
     else
       new_cart = Repo.insert!(%Order{status: "cart"})

@@ -16,6 +16,7 @@ defmodule PhoenixCart.CartController do
   def update(conn, %{"id" => id, "line_item" => line_item_params}) do
     order = Repo.get!(Order, id)
     product = Repo.get!(Product, line_item_params["product_id"])
+
     changeset = LineItem.changeset(%LineItem{}, line_item_params)
 
     if changeset.valid? do

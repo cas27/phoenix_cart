@@ -1,7 +1,7 @@
 <h2>Cart</h2>
 
+<ul>
 <%= for line_item <- @order.line_items do %>
-    <tr>
-      <td><%= line_item.quantity %></td>
-    </tr>
+    <li><%= line_item.product.name %> $<%= line_item.price %> x <%= line_item.quantity %> Total: $<%= line_item_total(line_item) %></li>
 <% end %>
+</ul>
