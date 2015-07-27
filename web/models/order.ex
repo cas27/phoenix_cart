@@ -13,6 +13,8 @@ defmodule PhoenixCart.Order do
     field :ship_address1, :string
     field :ship_address2, :string
 
+    field :card_number, :string, virtual: true
+
     has_many :line_items, PhoenixCart.LineItem
     has_many :products, through: [:line_items, :product]
 
@@ -20,7 +22,7 @@ defmodule PhoenixCart.Order do
   end
 
   @required_fields ~w(ship_name ship_state ship_zipcode phone_number email status total ship_address1)
-  @optional_fields ~w(ship_address2 ship_company)
+  @optional_fields ~w(ship_address2 ship_company card_number)
 
   @doc """
   Creates a changeset based on the `model` and `params`.
@@ -32,6 +34,11 @@ defmodule PhoenixCart.Order do
   def changeset(:update, model, params) do
     model
     |> cast(params, @required_fields, @optional_fields)
+  end
+
+  def changeset(:checkout, model, params) do
+    model
+    |> cast(params, @required_fields ++ ["card_number"], @optional_fields)
   end
 
   def changeset(:create, model, params) do

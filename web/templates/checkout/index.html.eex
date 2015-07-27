@@ -1,0 +1,60 @@
+<h2>Checkout</h2>
+
+<%= form_for @changeset, "/checkout/#{@order.id}", fn f -> %>
+
+  <%= if f.errors != [] do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below:</p>
+      <ul>
+        <%= for {attr, message} <- f.errors do %>
+          <li><%= humanize(attr) %> <%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= label f, :ship_name, "Name" %>
+    <%= text_input f, :ship_name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :email, "Email" %>
+    <%= text_input f, :email, class: "form-control" %>
+  </div>
+  
+  <div class="form-group">
+    <%= label f, :phone, "Phone" %>
+    <%= text_input f, :phone, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :ship_company, "Company" %>
+    <%= text_input f, :ship_company, class: "form-control" %>
+  </div>
+  
+  <div class="form-group">
+    <%= label f, :ship_address1, "Address" %>
+    <%= text_input f, :ship_address1, class: "form-control" %>
+    <%= text_input f, :ship_address2, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :ship_state, "State" %>
+    <%= text_input f, :ship_state, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :ship_zipcode, "Zip Code" %>
+    <%= text_input f, :ship_zipcode, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :card_number, "Card Number" %>
+    <%= text_input f, :card_number, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= submit "Checkout", class: "btn btn-primary" %>
+  </div>
+<% end %>
