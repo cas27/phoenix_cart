@@ -55,6 +55,16 @@
   </div>
 
   <div class="form-group">
+    <%= label f, :exp_date, "Expiration Date" %>
+    <%= text_input f, :exp_date, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :cvc, "CVC" %>
+    <%= text_input f, :cvc, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
     <%= submit "Checkout", class: "btn btn-primary" %>
   </div>
 <% end %>
