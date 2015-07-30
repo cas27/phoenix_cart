@@ -24,8 +24,8 @@
   </div>
   
   <div class="form-group">
-    <%= label f, :phone, "Phone" %>
-    <%= text_input f, :phone, class: "form-control" %>
+    <%= label f, :phone_number, "Phone" %>
+    <%= text_input f, :phone_number, class: "form-control" %>
   </div>
 
   <div class="form-group">
@@ -55,8 +55,13 @@
   </div>
 
   <div class="form-group">
-    <%= label f, :exp_date, "Expiration Date" %>
-    <%= text_input f, :exp_date, class: "form-control" %>
+    <%= label f, :exp_month, "Expiration Month" %>
+    <%= text_input f, :exp_month, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :exp_year, "Expiration Year" %>
+    <%= text_input f, :exp_year, class: "form-control" %>
   </div>
 
   <div class="form-group">

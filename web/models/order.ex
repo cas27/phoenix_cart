@@ -14,7 +14,8 @@ defmodule PhoenixCart.Order do
     field :ship_address2, :string
 
     field :card_number, :string, virtual: true
-    field :exp_date, :string, virtual: true
+    field :exp_month, :integer, virtual: true
+    field :exp_year, :integer, virtual: true
     field :cvc, :string, virtual: true
 
     has_many :line_items, PhoenixCart.LineItem
@@ -23,9 +24,9 @@ defmodule PhoenixCart.Order do
     timestamps
   end
 
-  @required_fields ~w(ship_name ship_state ship_zipcode phone_number email status total ship_address1)
-  @optional_fields ~w(ship_address2 ship_company card_number)
-  @credit_fields ~w(card_number exp_date cvc)
+  @required_fields ~w(ship_name ship_state ship_zipcode phone_number email status ship_address1)
+  @optional_fields ~w(ship_address2 ship_company card_number total)
+  @credit_fields ~w(card_number exp_month exp_year cvc)
 
   @doc """
   Creates a changeset based on the `model` and `params`.
