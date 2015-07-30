@@ -33,3 +33,8 @@ config :phoenix_cart, PhoenixCart.Repo,
   password: "postgres",
   database: "phoenix_cart_dev",
   size: 10 # The amount of database connections in the pool
+
+config :ppt,
+  user: "AeosmXJ1nZWwJgErHHhzxpOS0fH7Ki6qu4LVEotJA3al_bsZcnnYsvc1dDAi_71JYIdwkxeFHDu4sdEy",
+  secret: "EDL8FGl7O6Xy-oIjdvcl4TRrx9EqKEkU_vKTi2qV3S95vfh1RB9gqiBJ6Uys-NuhSWCOn3FO84JFdpXy",
+  currency: "USD"

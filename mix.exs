@@ -18,7 +18,7 @@ defmodule PhoenixCart.Mixfile do
   def application do
     [mod: {PhoenixCart, []},
      applications: [:phoenix, :phoenix_html, :cowboy, :logger,
-                    :phoenix_ecto, :postgrex]]
+                    :phoenix_ecto, :ppt, :postgrex]]
   end
 
   # Specifies which paths to compile per environment
@@ -29,11 +29,14 @@ defmodule PhoenixCart.Mixfile do
   #
   # Type `mix help deps` for examples and options
   defp deps do
-    [{:phoenix, "~> 0.15"},
+    [
+     {:phoenix, "~> 0.15"},
      {:phoenix_ecto, "~> 0.8"},
      {:postgrex, ">= 0.0.0"},
      {:phoenix_html, "~> 1.4"},
      {:phoenix_live_reload, "~> 0.5", only: :dev},
-     {:cowboy, "~> 1.0"}]
+     {:cowboy, "~> 1.0"},
+     {:ppt, github: "cas27/ppt"}
+    ]
   end
 end
