@@ -32,5 +32,5 @@ defmodule PhoenixCart.Endpoint do
     key: "_phoenix_cart_key",
     signing_salt: "hBt/ic9D"
 
-  plug :router, PhoenixCart.Router
+  plug PhoenixCart.Router
 end

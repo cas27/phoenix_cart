@@ -16,4 +16,4 @@ config :phoenix_cart, PhoenixCart.Repo,
   password: "postgres",
   database: "phoenix_cart_test",
   pool: Ecto.Adapters.SQL.Sandbox, # Use a sandbox for transactional testing
-  size: 1
+  pool_size: 1

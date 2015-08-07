@@ -11,7 +11,7 @@ config :phoenix_cart, PhoenixCart.Endpoint,
   debug_errors: true,
   code_reloader: true,
   cache_static_lookup: false,
-  watchers: [node: ["node_modules/brunch/bin/brunch", "watch"]]
+  watchers: [node: ["node_modules/brunch/bin/brunch", "watch", "--stdin"]]
 
 # Watch static and templates for browser reloading.
 config :phoenix_cart, PhoenixCart.Endpoint,
@@ -32,7 +32,7 @@ config :phoenix_cart, PhoenixCart.Repo,
   username: "postgres",
   password: "postgres",
   database: "phoenix_cart_dev",
-  size: 10 # The amount of database connections in the pool
+  pool_size: 10 # The amount of database connections in the pool
 
 config :ppt,
   user: "AeosmXJ1nZWwJgErHHhzxpOS0fH7Ki6qu4LVEotJA3al_bsZcnnYsvc1dDAi_71JYIdwkxeFHDu4sdEy",
