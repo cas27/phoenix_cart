@@ -55,4 +55,7 @@ defmodule PhoenixCart.Order do
     |> cast(params, @required_fields, @optional_fields)
   end
 
+  def line_item_count(order_id) do
+  end
+
 end

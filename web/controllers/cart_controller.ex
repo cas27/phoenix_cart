@@ -23,6 +23,10 @@ defmodule PhoenixCart.CartController do
     if changeset.valid? do
       Repo.insert!(changeset)
 
+      PhoenixCart.Endpoint.broadcast!(
+        "carts:lobby", "add_to_cart", %{count: PhoenixCart.OrderView.line_item_count(id)}
+      )
+
       conn
       |> put_flash(:info, "Added to cart.")
       |> redirect(to: cart_path(conn, :index))

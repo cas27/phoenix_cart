@@ -1,6 +1,7 @@
 defmodule PhoenixCart.Endpoint do
   use Phoenix.Endpoint, otp_app: :phoenix_cart
 
+
   # Serve at "/" the static files from "priv/static" directory.
   #
   # You should set gzip to true if you are running phoenix.digest
@@ -33,4 +34,5 @@ defmodule PhoenixCart.Endpoint do
     signing_salt: "hBt/ic9D"
 
   plug PhoenixCart.Router
+
 end
